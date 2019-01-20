@@ -1,0 +1,41 @@
+<% if current_user.id == @user.id %>
+<h1>マイページ</h1>
+<% else %>
+<% end %>
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+
+      <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container" style="border-bottom:1px solid black">
+          <h3><%= @user.name %></h3>
+        </div>
+        <hr>
+        <div class=" col-md-9 col-lg-9 ">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <% if current_user.id == @user.id %>
+                <td>ユーザーID:</td>
+                <td><%= @user.userid %></td>
+                <% else %>
+                <% end %>
+              </tr>
+              <tr>
+                <td>メールアドレス:</td>
+                <td><%= @user.email %></td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+<% if current_user.id == @user.id %>
+<td><form action='/users/<%= session[:id] %>/edit' method='get'>
+      <input type='submit' value='プロフィール編集'>
+          <% else %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
